@@ -229,8 +229,7 @@ h4 {
 
 #services {
     padding-top: 100px !important;
-    background-size: cover;
-    margin-bottom: -3px;
+    margin-bottom: 10px;
     min-height: 500px;
 }
 
