@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CPHH Manage Submissions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Progressive Home Veterinary Care Chicago</title>
+    
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:300,400|Questrial|Satisfy">
+    <link rel="stylesheet" type="text/css" href="{% static 'cphh/css/font-awesome-min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cphh/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cphh/css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cphh/css/style.css' %}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  </head>
+
+  <body id="myPage" data-spy="scroll" data-offset="60"">
+
+  <section id="gallery" class=" section-padding wow fadeIn delay-05s">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <h2 class="title-text deco">
+            Manage Testimonials 
+          </h2>
+        </div>
+      </div>
+
+
+      <div class="row">
+      {% for client in clients %}
+
+        <div class=" col-sm-5 col-md-5 col-lg-3" style="border: 1px solid gray; margin: 10px;">
+          <h4 class="card-title"><a href="mailto:{{client.email}}">{{client.first_name}} {{client.last_name}}</a></h4>
+          {% for image in images %}
+            {% if image.client.id == client.id %}
+           <img class="gallery-image col-sm-12" src="{{media_url}}{{ image.model_pic }}">
+           <div class="text-center">
+            {% if image.moderated != True %}
+              <a href="{% url 'gallery:approve_image' id=image.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
+            {% endif %}
+              <a href="{% url 'gallery:destroy_image' id=image.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
+            
+            </div>
+           {% endif %}
+          {% endfor %}
+          <div class="card-block">
+            {% for testimonial in testimonials %}
+              {% if testimonial.client.id == client.id %}
+                <br>
+                <p class="card-text text-center">"{{testimonial.testimonial}}"</p>
+                <div class="text-center">
+                {% if testimonial.moderated != True %}
+                  
+                  <a href="{% url 'gallery:approve_testimonial' id=testimonial.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
+                {% endif %}
+                <a href="{% url 'gallery:destroy_testimonial' id=testimonial.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+
+
+
+
+
+
+<!-- 
+      <div class="row gallery">
+        {% if images %}
+         {% for image in images %}
+
+        <div class="card col-sm-12 col-md-6 col-lg-6">
+
+          <div class="card-block gallery-block">
+            <div class="text-center">
+            {% if image.moderated != True %}
+              <a href="{% url 'gallery:approve_image' id=image.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
+            {% endif %}
+              <a href="{% url 'gallery:destroy_image' id=image.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
+            
+            </div>
+            <h4 class="card-title"> Pet: {{image.pet_name}}  |  Owner:  {{image.client.first_name}} {{image.client.last_name}}</h4>
+            <img class="gallery-image" src="{{media_url}}{{ image.model_pic }}">
+
+            {% if testimonials %}
+              {% for testimonial in testimonials %}
+               {% if testimonial.client.id == image.client.id %}
+                <h4 class="text-center">{{testimonial.testimonial}}</h4>
+               }
+               {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+       {% endif %}
+      </div>
+ -->
+
+    </div>
+  </section>
+
+       
+  
+
+
+    <script src="{% static 'cphh/js/jquery.min.js' %}"></script>
+    <script src="{% static 'cphh/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'cphh/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'cphh/js/wow.js' %}"></script>
+
+    
+</body>
+</html>
