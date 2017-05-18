@@ -18,263 +18,263 @@
 
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60"">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="bg-color">
-      <header id="main-header">
+    <!-- Header -->
+    <div class="header">
+      <div class="bg-color">
+        <header id="main-header">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-       
-          {% if messages %}
-            {% for message in messages %}
-              <p class="messages">{{message}}</p>
-            {% endfor %}
-          {% endif %}
+          <!-- Navigation -->
+          <nav class="navbar navbar-default navbar-fixed-top">
+         
+            {% if messages %}
+              {% for message in messages %}
+                <p class="messages">{{message}}</p>
+              {% endfor %}
+            {% endif %}
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lauraMenu">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+   
+              </div>
+              <div class="collapse navbar-collapse" id="lauraMenu">
+                <ul class="nav navbar-nav navbar-left navbar-border">
+                  <li class="active"><a id="home-button" href="{% url 'gallery:gallery' %}">Meet our Happy Patients!</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-border">
+                  <li class="active"><a id="home-button" href="#main-header">Home</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#philosophy">Philosophy</a></li>
+                  <li><a href="#team">Our Team</a></li>
+                  <li><a href="#contact">About/Contact</a></li>
+                </ul>
+              </div>
+              
+            </div>
+          </nav>
+        <!-- End Navigation -->
+        </header>
+
+        <!-- Big Intro -->
+
+        <div class="wrapper">
           <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lauraMenu">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
- 
-            </div>
-            <div class="collapse navbar-collapse" id="lauraMenu">
-              <ul class="nav navbar-nav navbar-left navbar-border">
-                <li class="active"><a id="home-button" href="{% url 'gallery:gallery' %}">Meet our Happy Patients!</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right navbar-border">
-                <li class="active"><a id="home-button" href="#main-header">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#philosophy">Philosophy</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact">About/Contact</a></li>
-              </ul>
-            </div>
-            
-          </div>
-        </nav>
-      <!-- End Navigation -->
-      </header>
-
-      <!-- Big Intro -->
-
-      <div class="wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 wow fadeIn delay-05s">
-              <div class="banner-text">
-                <img class="navbar-brand" src="{% static 'cphh/img/logo.png' %}">
-                <h2 class="headline">Progressive veterinary care.</h2>
-                <p class="subline">Provided in the comfort<br>of your own home.</p>
-              </div>
-              <div class="overlay-detail text-center">
-                <a href="#services"><i class="fa fa-angle-down" >&or;</i></a>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      <!-- End Big Intro -->
- 
-  <!-- Services Section -->
-   <section id="services" class=" section-padding wow fadeIn delay-05s">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-right">
-          <h2 class="title-text deco">
-            Our Services
-          </h2>
-          <p>&nbsp;</p>
-        </div>
-        <div class="col-md-6 text-left">
-          <div class="services-text">
-          <br>
-            <p>We provide full-service veterinary care in the comfort of your own home.</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="card col-sm-6 col-md-3 col-lg-3"  >
-          <img class="card-img-top" src="{% static 'cphh/img/puppy_wellness.png' %}" alt="Puppy wellness">
-          <div class="card-block">
-            <h4 class="card-title">PUPPY AND KITTEN WELLNESS EXAMS</h4>
-            <p class="card-text">Get your pet started out on the right foot. We offer puppy and kitten vaccinations, deworming, fecal testing, heartworm testing, microchipping, behavior consultations, and more! We will show your pet that veterinary visits can be fun and set them up for a lifelong positive association with their veterinarian!</p>
-          </div>
-        </div>
-        <div class="card col-sm-6 col-md-3 col-lg-3" >
-          <img class="card-img-top" src="{% static 'cphh/img/adult_wellness.png' %}" alt="adult wellness">
-          <div class="card-block">
-            <h4 class="card-title">ADULT WELLNESS EXAMS & MEDICAL MANAGEMENT</h4>
-            <p class="card-text">Let us ensure that your pet continues to thrive with annual wellness exams and preventative blood testing for early detection of diseases. We can manage many chronic illnesses at home with routine monitoring and convenient access to a fully stocked pharmacy. </p>
-          </div>
-        </div>
-        <div class="card col-sm-6 col-md-3 col-lg-3" >
-          <img class="card-img-top" src="{% static 'cphh/img/hospice_care.jpeg' %}" alt="hospice care">
-          <div class="card-block">
-            <h4 class="card-title">HOSPICE CARE</h4>
-            <p class="card-text">Help your pet live out their best life and transition peacefully with our compassionate hospice care team. Hospice care plans are offered on a monthly, weekly, or daily basis, as needed to keep your pet comfortable. We can partner with your pet's specialist or regular veterinarian in order to provide the most comprehensive care during this time. </p>
-          </div>
-        </div>
-        <div class="card col-sm-6 col-md-3 col-lg-3">
-          <img class="card-img-top" src="{% static 'cphh/img/end_of_life.jpg' %}" alt="End of life">
-          <div class="card-block">
-            <h4 class="card-title">END OF LIFE SERVICES</h4>
-            <p class="card-text">Often the most difficult decision pet owner's are ever faced with. Let us help guide you through the process. We can help your pet pass away peacefully and painlessly in the comfort of their own home. Cremation services can also be arranged with transportation to the crematorium provided. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Services Section -->
-
-  <div id="test"></div>
-
-  <!-- Philosophy Section -->
-  <section id="philosophy" class="section-padding wow fadeIn delay-05s">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="deco" id="philosophy-heading">
-            Our Philosophy
-          </h2>
-        </div>
-        <div class="col-md-12 text-left">
-          <div>
-            <p class="philosophy-text">We believe that your pet deserves high quality care, without the stress and anxiety that often accompanies visiting a veterinary clinic. Whether your pet requires routine wellness care, monitoring of a chronic condition, hospice care, or end of life services, we want their visit to be a low stress process, for both pet and caregiver.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Philosophy Section -->
-
-
-  <!-- Team Section  -->
-  <section id="team" class="section-padding wow fadeIn delay-05s">
-        <div class="container">
             <div class="row">
-                <div class="col-md-6 text-right">
-                  <h2 class="deco title-text">
-                     Our Amazing Team
-                  </h2>
+              <div class="col-md-12 wow fadeIn delay-05s">
+                <div class="banner-text">
+                  <img class="navbar-brand" src="{% static 'cphh/img/logo.png' %}">
+                  <h2 class="headline">Progressive veterinary care.</h2>
+                  <p class="subline">Provided in the comfort<br>of your own home.</p>
                 </div>
-                <br>
-                <br>
-                <p>Under Construction!</p>
-                <br>
-                <br>
+                <div class="overlay-detail text-center">
+                  <a href="#services"><i class="fa fa-angle-down" >&or;</i></a>
+                </div>
+              </div>
             </div>
-            <!-- <div class="row">
-                <div class="col-sm-4 col-md-4">
-                    <div class="team-member">
-                        <img src="{% static 'cphh/img/avatar.png' %}" class="img-responsive img-circle" alt="">
-                        <h4>Megan Carolan, DVM</h4>
-                        <p class="text-muted">Lead Veterinarian</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="team-member">
-                        <img src="{% static 'cphh/img/avatar.png' %}" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Veterinary Technician</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <div class="team-member">
-                        <img src="{% static 'cphh/img/avatar.png' %}"  class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Veterinary Technician</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut.</p>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-  </section>
-  <!-- End Team Section -->
-
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding wow fadeIn delay-05s">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="text-right contact-sec text-white col-md-6 pull-right">
-            <h2 class="deco title-text">Hours, Location and Contact</h2>
           </div>
-          <img class=" col-md-6 pull-left contact-brand" src="{% static 'cphh/img/logo.png' %}">
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-7 pull-left">
-          <h4 class="text-white">Serving Chicago, Northwest Cook, and Southern Lake Counties</h4>
-          <div id="map"></div>
-        </div>
-        <div class="col-md-5 pull-right">
-          <h3 class="text-white">Phone (312) 934-5753</h3>
-          <h4 class="text-white">Mon-Fri 9am-9pm</h4>
-          <h4 class="text-white">Sat 10am-4pm, Closed Sun</h4>
-          <h5 class="text-white">After-hours call MedVet Emergency (773) 281-7110</h5>
-        </div>
-        <br>
-        <br>
-        <div id="contact-form" class="col-md-5 pull-right">
-            <form method="POST" action="{% url 'cphh:contact' %}" class="contactForm">
-            {% csrf_token %}
-              <div style="width: 50%;" class="form-group pull-left">
-                <input class="form-control" type="name" name="first_name" placeholder="first name" required>
-              </div>
-              <div style="width: 50%;" class="form-group pull-right">
-                <input class="form-control" type="name" name="last_name" placeholder="last name" required>
-              </div>
-              <div style="width: 50%;" class="form-group pull-left">
-                <input class="form-control" type="text" name="phone" placeholder="phone number" required>
-              </div>
-              <div style="width: 50%;" class="form-group  pull-right">
-                <input class="form-control" type="email" name="email" placeholder="email" required>
-              </div>
-              <div class="form-group">
-                 <textarea rows="2" class="form-control" name="appt" placeholder="Best days/times for appointments" required></textarea>
-              </div>
-              <div class="form-group">
-                <textarea rows="4" class="form-control" name="message" placeholder="Your message" required></textarea>
-              </div>
-              <div class="text-center">
-                <button id="send" class='pull-right btn btn-primary btn-lg' type="submit">Send</button>
-              </div>
-            </form>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Contact Section -->
-
-  <!-- Footer -->
-  <footer class="footer-2 text-center-xs bg--white">
-    <div class="container">
-      <div class="row">
-          <div class="col-md-6">
-              <div class="footer">
-                <p>© Copyright Chicago Pet Health &amp; Harmony 2017</p>
-              </div>
+    <!-- End Big Intro -->
+   
+    <!-- Services Section -->
+    <section id="services" class=" section-padding wow fadeIn delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-right">
+            <h2 class="title-text deco">
+              Our Services
+            </h2>
+            <p>&nbsp;</p>
           </div>
+          <div class="col-md-6 text-left">
+            <div class="services-text">
+            <br>
+              <p>We provide full-service veterinary care in the comfort of your own home.</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card col-sm-6 col-md-3 col-lg-3"  >
+            <img class="card-img-top" src="{% static 'cphh/img/puppy_wellness.png' %}" alt="Puppy wellness">
+            <div class="card-block">
+              <h4 class="card-title">PUPPY AND KITTEN WELLNESS EXAMS</h4>
+              <p class="card-text">Get your pet started out on the right foot. We offer puppy and kitten vaccinations, deworming, fecal testing, heartworm testing, microchipping, behavior consultations, and more! We will show your pet that veterinary visits can be fun and set them up for a lifelong positive association with their veterinarian!</p>
+            </div>
+          </div>
+          <div class="card col-sm-6 col-md-3 col-lg-3" >
+            <img class="card-img-top" src="{% static 'cphh/img/adult_wellness.png' %}" alt="adult wellness">
+            <div class="card-block">
+              <h4 class="card-title">ADULT WELLNESS EXAMS & MEDICAL MANAGEMENT</h4>
+              <p class="card-text">Let us ensure that your pet continues to thrive with annual wellness exams and preventative blood testing for early detection of diseases. We can manage many chronic illnesses at home with routine monitoring and convenient access to a fully stocked pharmacy. </p>
+            </div>
+          </div>
+          <div class="card col-sm-6 col-md-3 col-lg-3" >
+            <img class="card-img-top" src="{% static 'cphh/img/hospice_care.jpeg' %}" alt="hospice care">
+            <div class="card-block">
+              <h4 class="card-title">HOSPICE CARE</h4>
+              <p class="card-text">Help your pet live out their best life and transition peacefully with our compassionate hospice care team. Hospice care plans are offered on a monthly, weekly, or daily basis, as needed to keep your pet comfortable. We can partner with your pet's specialist or regular veterinarian in order to provide the most comprehensive care during this time. </p>
+            </div>
+          </div>
+          <div class="card col-sm-6 col-md-3 col-lg-3">
+            <img class="card-img-top" src="{% static 'cphh/img/end_of_life.jpg' %}" alt="End of life">
+            <div class="card-block">
+              <h4 class="card-title">END OF LIFE SERVICES</h4>
+              <p class="card-text">Often the most difficult decision pet owner's are ever faced with. Let us help guide you through the process. We can help your pet pass away peacefully and painlessly in the comfort of their own home. Cremation services can also be arranged with transportation to the crematorium provided. </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-  <!-- End Footer -->
+    </section>
+    <!-- End Services Section -->
 
-<!--   Original design <a href="https://bootstrapmade.com/">BootstrapMade.com</a> © Design Copyright Laura Theme. All Rights Reserved
+    <div id="test"></div>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section-padding wow fadeIn delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="deco" id="philosophy-heading">
+              Our Philosophy
+            </h2>
+          </div>
+          <div class="col-md-12 text-left">
+            <div>
+              <p class="philosophy-text">We believe that your pet deserves high quality care, without the stress and anxiety that often accompanies visiting a veterinary clinic. Whether your pet requires routine wellness care, monitoring of a chronic condition, hospice care, or end of life services, we want their visit to be a low stress process, for both pet and caregiver.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Philosophy Section -->
+
+
+    <!-- Team Section  -->
+    <section id="team" class="section-padding wow fadeIn delay-05s">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 text-right">
+                    <h2 class="deco title-text">
+                       Our Amazing Team
+                    </h2>
+                  </div>
+                  <br>
+                  <br>
+                  <p>Under Construction!</p>
+                  <br>
+                  <br>
+              </div>
+              <!-- <div class="row">
+                  <div class="col-sm-4 col-md-4">
+                      <div class="team-member">
+                          <img src="{% static 'cphh/img/avatar.png' %}" class="img-responsive img-circle" alt="">
+                          <h4>Megan Carolan, DVM</h4>
+                          <p class="text-muted">Lead Veterinarian</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut.</p>
+                      </div>
+                  </div>
+                  <div class="col-sm-4 col-md-4">
+                      <div class="team-member">
+                          <img src="{% static 'cphh/img/avatar.png' %}" class="img-responsive img-circle" alt="">
+                          <h4>Larry Parker</h4>
+                          <p class="text-muted">Veterinary Technician</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut.</p>
+                      </div>
+                  </div>
+                  <div class="col-sm-4 col-md-4">
+                      <div class="team-member">
+                          <img src="{% static 'cphh/img/avatar.png' %}"  class="img-responsive img-circle" alt="">
+                          <h4>Diana Pertersen</h4>
+                          <p class="text-muted">Veterinary Technician</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut.</p>
+                      </div>
+                  </div>
+              </div> -->
+          </div>
+    </section>
+    <!-- End Team Section -->
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding wow fadeIn delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="text-right contact-sec text-white col-md-6 pull-right">
+              <h2 class="deco title-text">Hours, Location and Contact</h2>
+            </div>
+            <img class=" col-md-6 pull-left contact-brand" src="{% static 'cphh/img/logo.png' %}">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-7 pull-left">
+            <h4 class="text-white">Serving Chicago, Northwest Cook, and Southern Lake Counties</h4>
+            <div id="map"></div>
+          </div>
+          <div class="col-md-5 pull-right">
+            <h3 class="text-white">Phone (312) 934-5753</h3>
+            <h4 class="text-white">Mon-Fri 9am-9pm</h4>
+            <h4 class="text-white">Sat 10am-4pm, Closed Sun</h4>
+            <h5 class="text-white">After-hours call MedVet Emergency (773) 281-7110</h5>
+          </div>
+          <br>
+          <br>
+          <div id="contact-form" class="col-md-5 pull-right">
+              <form method="POST" action="{% url 'cphh:contact' %}" class="contactForm">
+              {% csrf_token %}
+                <div style="width: 50%;" class="form-group pull-left">
+                  <input class="form-control" type="name" name="first_name" placeholder="first name" required>
+                </div>
+                <div style="width: 50%;" class="form-group pull-right">
+                  <input class="form-control" type="name" name="last_name" placeholder="last name" required>
+                </div>
+                <div style="width: 50%;" class="form-group pull-left">
+                  <input class="form-control" type="text" name="phone" placeholder="phone number" required>
+                </div>
+                <div style="width: 50%;" class="form-group  pull-right">
+                  <input class="form-control" type="email" name="email" placeholder="email" required>
+                </div>
+                <div class="form-group">
+                   <textarea rows="2" class="form-control" name="appt" placeholder="Best days/times for appointments" required></textarea>
+                </div>
+                <div class="form-group">
+                  <textarea rows="4" class="form-control" name="message" placeholder="Your message" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button id="send" class='pull-right btn btn-primary btn-lg' type="submit">Send</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Footer -->
+    <footer class="footer-2 text-center-xs bg--white">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="footer">
+                  <p>© Copyright Chicago Pet Health &amp; Harmony 2017</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+  <!--   Original design <a href="https://bootstrapmade.com/">BootstrapMade.com</a> © Design Copyright Laura Theme. All Rights Reserved
                     -->
 
     <script src="{% static 'cphh/js/jquery.min.js' %}"></script>
