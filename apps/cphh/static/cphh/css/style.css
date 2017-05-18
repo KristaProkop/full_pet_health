@@ -121,6 +121,8 @@ h4 {
 .bg-color{
 	background-color: RGBA(74, 54, 55, 0.90);
 	min-height: 650px;
+    height: 100vh;
+
 }
 
 .sm-color {

@@ -4,10 +4,25 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.conf import settings
+from django.views import View
 
 from .models import Client, Inquiry, Message
 
+class LoginView(View):
+    def get(self, request):
+        return render(request,'cphh/login.html')
 
+    def post(self, request):
+        login_valid, login_response = Client.objects.login(request.POST)
+        if login_valid:
+            request.session['id'] = login_response.id
+            request.session['email'] = login_response.email
+            if request.session['email'] ==settings.ADMIN_EMAIL:
+                return redirect(reverse('gallery:manage'))
+            else:
+                return redirect(reverse('gallery:gallery'))
+        else:
+            messages.error(request, login_response)
 
 
 def index(request):
@@ -39,20 +54,6 @@ def register(request):
                 messages.error(request, login_response)
         else: 
             messages.error(request, reg_response)
-    return render(request,'cphh/login.html')
-
-def login(request):
-    if request.method == "POST":
-        login_valid, login_response = Client.objects.login(request.POST)
-        if login_valid:
-            request.session['id'] = login_response.id
-            request.session['email'] = login_response.email
-            if request.session['email'] ==settings.ADMIN_EMAIL:
-                return redirect(reverse('gallery:manage'))
-            else:
-                return redirect(reverse('gallery:gallery'))
-        else:
-            messages.error(request, login_response)
     return render(request,'cphh/login.html')
 
 def logout(request):
