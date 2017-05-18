@@ -38,9 +38,9 @@
            <img class="gallery-image col-sm-12" src="{{media_url}}{{ image.model_pic }}">
            <div class="text-center">
             {% if image.moderated != True %}
-              <a href="{% url 'gallery:approve_image' id=image.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
+              <a href="{% url 'gallery:manage_image' manage_type='approve'  id=image.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
             {% endif %}
-              <a href="{% url 'gallery:destroy_image' id=image.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
+              <a href="{% url 'gallery:manage_image' manage_type='destroy'  id=image.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
             
             </div>
            {% endif %}
@@ -53,9 +53,9 @@
                 <div class="text-center">
                 {% if testimonial.moderated != True %}
                   
-                  <a href="{% url 'gallery:approve_testimonial' id=testimonial.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
+                  <a href="{% url 'gallery:manage_testimonial' manage_type='approve'  id=testimonial.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
                 {% endif %}
-                <a href="{% url 'gallery:destroy_testimonial' id=testimonial.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
+                <a href="{% url 'gallery:manage_testimonial' manage_type='destroy'  id=testimonial.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
                 </div>
               {% endif %}
             {% endfor %}
@@ -68,39 +68,6 @@
 
 
 
-
-<!-- 
-      <div class="row gallery">
-        {% if images %}
-         {% for image in images %}
-
-        <div class="card col-sm-12 col-md-6 col-lg-6">
-
-          <div class="card-block gallery-block">
-            <div class="text-center">
-            {% if image.moderated != True %}
-              <a href="{% url 'gallery:approve_image' id=image.id %}"><button class='btn btn-success btn-sm ' type="submit" value="Submit">Approve</button></a>
-            {% endif %}
-              <a href="{% url 'gallery:destroy_image' id=image.id %}"><button class='btn btn-primary btn-sm delete-btn' type="submit" value="Submit">Delete</button></a>
-            
-            </div>
-            <h4 class="card-title"> Pet: {{image.pet_name}}  |  Owner:  {{image.client.first_name}} {{image.client.last_name}}</h4>
-            <img class="gallery-image" src="{{media_url}}{{ image.model_pic }}">
-
-            {% if testimonials %}
-              {% for testimonial in testimonials %}
-               {% if testimonial.client.id == image.client.id %}
-                <h4 class="text-center">{{testimonial.testimonial}}</h4>
-               }
-               {% endif %}
-              {% endfor %}
-            {% endif %}
-          </div>
-        </div>
-        {% endfor %}
-       {% endif %}
-      </div>
- -->
 
     </div>
   </section>

@@ -1,11 +1,13 @@
 from django.conf.urls import url
+
 from . import views
+from .views import GalleryView, ManageImagesView, ManageTestimonialsView
 
 urlpatterns = [ 
-    url(r'^gallery$', views.gallery, name="gallery"),
     url(r'^manage$', views.manage, name='manage'),
-    url(r'^image/delete/(?P<id>\d+)$', views.destroy_image, name="destroy_image"),
-    url(r'^image/approve/(?P<id>\d+)$', views.approve_image, name="approve_image"),
-    url(r'^testimonial/delete/(?P<id>\d+)$', views.destroy_testimonial, name="destroy_testimonial"),
-    url(r'^testimonial/approve/(?P<id>\d+)$', views.approve_testimonial, name="approve_testimonial"),    
+
+    url(r'^gallery$', GalleryView.as_view(), name="gallery"), 
+    url(r'^image/(?P<manage_type>[a-zA-Z]+)/(?P<id>\d+)$', ManageImagesView.as_view(), name="manage_image"),
+    url(r'^testimonial/(?P<manage_type>[a-zA-Z]+)/(?P<id>\d+)$', ManageTestimonialsView.as_view(), name="manage_testimonial"),
+      
 ]
