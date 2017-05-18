@@ -4,52 +4,51 @@
 {% block content %}
 
 
-  <!-- Main Gallery Section -->
-   <section id="gallery" class=" section-padding wow fadeIn delay-05s">
+<!-- Main Gallery Section -->
+<section id="gallery" class=" section-padding wow fadeIn delay-05s">
+  <div class="container">
 
-    <div class="container">
-
-      <!-- Submit Row -->
-      <div class="row">
-        <div class="col-md-6 text-right">
-          <h2 class="title-text deco">
-            Some of Our Happy Patients! 
-          </h2>
-          <p>&nbsp;</p>
-          {% if messages %}
-            {% for message in messages %}
-                <p class=" text-white messages">{{message}}</p>
-            {% endfor %}
+    <!-- Submit Row -->
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <h2 class="title-text deco">
+          Some of Our Happy Patients! 
+        </h2>
+        <p>&nbsp;</p>
+        {% if messages %}
+          {% for message in messages %}
+              <p class=" text-white messages">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-md-6 text-left">
+        <div class="services-text">
+          <h4>Is your pet a CPHH pet? Tell us about your experience (and share an image of your pet)!</h4>
+          {% if 'id' not in request.session %}
+          <a href="{% url 'cphh:login' %}"><button id="send" class='pull-left btn btn-primary btn-lg' type="submit">Log In or Sign Up 
+          </button></a>
+          {% endif %}
+          {% if 'id' in request.session %}
+            <form action="{% url 'gallery:gallery' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input id="id_image" type="file" class="" name="image">
+               <br>
+              <input type="text" name="pet_name" required> <label>Pet's name</label>
+              <br>
+              <br>
+              <textarea name="testimonial" class="col-sm-12" placeholder="Write your testimonial here!" required></textarea>
+              <input id='send' class='btn btn-primary btn-lg' type="submit" value="Submit" />
+            </form>
           {% endif %}
         </div>
-        <div class="col-md-6 text-left">
-          <div class="services-text">
-            <h4>Is your pet a CPHH pet? Tell us about your experience (and share an image of your pet)!</h4>
-            {% if 'id' not in request.session %}
-            <a href="{% url 'cphh:login' %}"><button id="send" class='pull-left btn btn-primary btn-lg' type="submit">Log In or Sign Up 
-            </button></a>
-            {% endif %}
-            {% if 'id' in request.session %}
-              <form action="{% url 'gallery:gallery' %}" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <input id="id_image" type="file" class="" name="image">
-                   <br>
-                  <input type="text" name="pet_name" required> <label>Pet's name</label>
-                  <br>
-                  <br>
-                  <textarea name="testimonial" class="col-sm-12" placeholder="Write your testimonial here!" required></textarea>
-                  <input id='send' class='btn btn-primary btn-lg' type="submit" value="Submit" />
-              </form>
-            {% endif %}
-          </div>
-        </div>
       </div>
-      <!-- End Submit Row -->
+    </div>
+    <!-- End Submit Row -->
 
-      <!-- Testimonials Row -->
-      <div class="row gallery">
-        {% if testimonials %}
-          {% for testimonial in testimonials %}
+    <!-- Testimonials Row -->
+    <div class="row gallery">
+      {% if testimonials %}
+        {% for testimonial in testimonials %}
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="card-block testimonial-block">
               <p class="text-center">From {{testimonial.client.first_name}} {{testimonial.client.last_name_initial}}:</p>
@@ -57,14 +56,14 @@
             </div>
           </div>
         {% endfor %}
-       {% endif %}
-      </div>
-      <!-- End Testimonials Row -->
+      {% endif %}
+    </div>
+    <!-- End Testimonials Row -->
 
-      <!-- Images Row -->
-      <div class="row gallery">
-        {% if images %}
-         {% for image in images %}
+    <!-- Images Row -->
+    <div class="row gallery">
+      {% if images %}
+        {% for image in images %}
           <div class=" col-sm-12 col-md-6 col-lg-6">
             <div class="card-block gallery-block">
               <h4 class="card-title"> 
@@ -73,76 +72,70 @@
             </div>
           </div>
         {% endfor %}
-       {% endif %}
-      </div>
-      <!-- End Images Row -->
-
+      {% endif %}
     </div>
+    <!-- End Images Row -->
 
-  </section>
-  <!-- End Main Gallery Section -->
-
-
-
-
+  </div>
+</section>
+<!-- End Main Gallery Section -->
 
 
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding wow fadeIn delay-05s">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="text-right contact-sec text-white col-md-6 pull-right">
-            <h2 class="deco title-text">Hours, Location and Contact</h2>
-          </div>
-          <img class=" col-md-6 pull-left contact-brand" src="{% static 'cphh/img/logo.png' %}">
+<!-- Contact Section -->
+<section id="contact" class="section-padding wow fadeIn delay-05s">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-right contact-sec text-white col-md-6 pull-right">
+          <h2 class="deco title-text">Hours, Location and Contact</h2>
         </div>
-
+        <img class=" col-md-6 pull-left contact-brand" src="{% static 'cphh/img/logo.png' %}">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-7 pull-left">
+        <h4 class="text-white">Serving Chicago, Northwest Cook, and Southern Lake Counties</h4>
+        <div id="map"></div>
+      </div>
+      <div class="col-md-5 pull-right">
+        <h3 class="text-white">Phone (312) 934-5753</h3>
+        <h4 class="text-white">Mon-Fri 9am-9pm</h4>
+        <h4 class="text-white">Sat 10am-4pm, Closed Sun</h4>
+        <h5 class="text-white">After-hours call MedVet Emergency (773) 281-7110</h5>
       </div>
       <br>
-      <div class="row">
-        <div class="col-md-7 pull-left">
-          <h4 class="text-white">Serving Chicago, Northwest Cook, and Southern Lake Counties</h4>
-          <div id="map"></div>
-        </div>
-        <div class="col-md-5 pull-right">
-          <h3 class="text-white">Phone (312) 934-5753</h3>
-          <h4 class="text-white">Mon-Fri 9am-9pm</h4>
-          <h4 class="text-white">Sat 10am-4pm, Closed Sun</h4>
-          <h5 class="text-white">After-hours call MedVet Emergency (773) 281-7110</h5>
-        </div>
-        <br>
-        <br>
-        <div id="contact-form" class="col-md-5 pull-right">
-            <form method="POST" action="{% url 'cphh:contact' %}" class="contactForm">
-            {% csrf_token %}
-              <div style="width: 50%;" class="form-group pull-left">
-                <input class="form-control" type="name" name="first_name" placeholder="first name" required>
-              </div>
-              <div style="width: 50%;" class="form-group pull-right">
-                <input class="form-control" type="name" name="last_name" placeholder="last name" required>
-              </div>
-              <div style="width: 50%;" class="form-group pull-left">
-                <input class="form-control" type="text" name="phone" placeholder="phone number" required>
-              </div>
-              <div style="width: 50%;" class="form-group  pull-right">
-                <input class="form-control" type="email" name="email" placeholder="email" required>
-              </div>
-              <div class="form-group">
-                 <textarea rows="2" class="form-control" name="appt" placeholder="Best days/times for appointments" required></textarea>
-              </div>
-              <div class="form-group">
-                <textarea rows="4" class="form-control" name="message" placeholder="Your message" required></textarea>
-              </div>
-              <div class="text-center">
-                <button id="send" class='pull-right btn btn-primary btn-lg' type="submit">Send</button>
-              </div>
-            </form>
-        </div>
+      <br>
+      <div id="contact-form" class="col-md-5 pull-right">
+        <form method="POST" action="{% url 'cphh:contact' %}" class="contactForm">
+          {% csrf_token %}
+          <div style="width: 50%;" class="form-group pull-left">
+            <input class="form-control" type="name" name="first_name" placeholder="first name" required>
+          </div>
+          <div style="width: 50%;" class="form-group pull-right">
+            <input class="form-control" type="name" name="last_name" placeholder="last name" required>
+          </div>
+          <div style="width: 50%;" class="form-group pull-left">
+            <input class="form-control" type="text" name="phone" placeholder="phone number" required>
+          </div>
+          <div style="width: 50%;" class="form-group  pull-right">
+            <input class="form-control" type="email" name="email" placeholder="email" required>
+          </div>
+          <div class="form-group">
+             <textarea rows="2" class="form-control" name="appt" placeholder="Best days/times for appointments" required></textarea>
+          </div>
+          <div class="form-group">
+            <textarea rows="4" class="form-control" name="message" placeholder="Your message" required></textarea>
+          </div>
+          <div class="text-center">
+            <button id="send" class='pull-right btn btn-primary btn-lg' type="submit">Send</button>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
-  <!-- End Contact Section -->
+  </div>
+</section>
+<!-- End Contact Section -->
 
 
 {% endblock %}
